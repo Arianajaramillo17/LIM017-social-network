@@ -1,10 +1,29 @@
 /* Cuando la pantalla sea más chica que 480px aplica estos estilos */
+@font-face {
+    font-family: AsiaMania-fond;
+    src: url(../flying_birds_2/FlyingBirds.ttf);
+  }
+
+.logo{
+    background-color: olivedrab;
+    /*font-family: flying-fond;*/
+}
+@media  (max-width: 760px) {
+    .logo {
+    background-color: red;
+    }
 @media (max-width: 480px) {
 .logo {
     background-color: rgb(255, 230, 0);
 }
+@media  (max-height: 450px) {
+    .logo {
+    background-color: red;
+    }
 }
-/* Pero si mi pantalla es mayor a 480 px aplica estos estilos siempre y cuando el tamaño sea menor a 768 px */
+
+
+/* Pero si mi pantalla es mayor a 480 px aplica estos estilos siempre y cuando el tamaño sea menor a 768 px 
 @media (max-width: 768px) {
 
-}
+}*/
