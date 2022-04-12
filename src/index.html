@@ -1,40 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>RED SOCIAL</title>
+  <title>Prueba de autenticacion firebase para google (sdk de Javascript)</title>
+  <style>
+    #datosuser{
+      font-size: .8em;
+    }
+  </style>
 </head>
-
 <body>
-  <div id="root">
-    <script type="module">
-      // Import the functions you need from the SDKs you need
-      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js";
-      import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-analytics.js";
-      // TODO: Add SDKs for Firebase products that you want to use
-      // https://firebase.google.com/docs/web/setup#available-libraries
-
-      // Your web app's Firebase configuration
-      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-      const firebaseConfig = {
-        apiKey: "AIzaSyAdpQXKg55Cbra_BW6AUNq5qhv38V2hF88",
+  <button id="botonlogin">Haz login con Google</button>  
+  <button id="botonlogout">Haz logout</button>  
+  
+  <p id="datosuser"></p>
+<script src="https://www.gstatic.com/firebasejs/3.5.2/firebase.js"></script>
+<script>
+  // inicializar Firebase
+  var config = {
+    apiKey: "AIzaSyAdpQXKg55Cbra_BW6AUNq5qhv38V2hF88",
         authDomain: "red-social-asia-mania.firebaseapp.com",
         projectId: "red-social-asia-mania",
         storageBucket: "red-social-asia-mania.appspot.com",
         messagingSenderId: "1078986064606",
         appId: "1:1078986064606:web:4a0cb964406a768abab84f",
         measurementId: "G-SQTD9N5WER"
-      };
+  };
+  firebase.initializeApp(config);
+</script>
+<script>
+// accedo al servicio de autenticación
+var authService = firebase.auth();
+// manejador de eventos para loguearse
+document.getElementById('botonlogin').addEventListener('click', function() {
+  var provider = new firebase.auth.GoogleAuthProvider();
+  provider.addScope('email');
+  authService.signInWithPopup(provider)
+        .then(function(result) {
+            // logueado con éxito
+            console.log('Hemos autenticado al usuario ', result.user);
+        })
+        .catch(function(error) {
+            // Fallo de login
+            console.log('Se ha encontrado un error:', error);
+        });
+})
 
-      // Initialize Firebase
-      const app = initializeApp(firebaseConfig);
-      const analytics = getAnalytics(app);
-    </script>
-    <script type="module" src="main.js"></script>
-  </div>
+//manejador de eventos para cerrar sesión (logout)
+document.getElementById('botonlogout').addEventListener('click', function() {
+  authService.signOut()
+})
+
+// manejador de eventos para los cambios del estado de autenticación
+authService.onAuthStateChanged(function(user) {
+  if (user) {
+    console.log('AuthStateChanged', user)
+    document.getElementById('datosuser').innerHTML = JSON.stringify(user);
+    document.getElementById('botonlogin').style.display = 'none';
+    document.getElementById('botonlogout').style.display = 'block';
+  } else {
+   
+    document.getElementById('datosuser').innerHTML = 'Sin usuario logueado...'
+    document.getElementById('botonlogin').style.display = 'block';
+    document.getElementById('botonlogout').style.display = 'none';
+  }
+});
+</script>
 </body>
-
 </html>
