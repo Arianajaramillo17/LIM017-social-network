@@ -1,7 +1,7 @@
 /* Cuando la pantalla sea más chica que 480px aplica estos estilos */
 @media (max-width: 480px) {
 .logo {
-    background-color: blue;
+    background-color: red;
 }
 }
 /* Pero si mi pantalla es mayor a 480 px aplica estos estilos siempre y cuando el tamaño sea menor a 768 px */
