@@ -1,4 +1,4 @@
-export const NewUser = () => {
+export const NewUser = (rootElement) => {
     const containerLogo = `<p>iniciar registro</p>`;
     const containerRegistro = `<p>GMAIL</p>
                                 <input></input>
@@ -8,6 +8,5 @@ export const NewUser = () => {
     <button class="button" id="BotonCrearCuenta">Crear Cuenta</button>
                               `;
    
-    const RegisterNewUser = containerLogo + containerRegistro + containerCrearCuenta ;
-    return RegisterNewUser;
+  rootElement.innerHTML = containerLogo+containerRegistro+containerCrearCuenta
   };

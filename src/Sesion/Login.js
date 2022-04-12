@@ -2,7 +2,9 @@ import { onNavigate } from "../main.js";
 
   export const Login = (rootElement)=>{
     const button = `  <button id="botonlogin">Haz login con Google</button>  ` 
-  rootElement.innerHTML = button;
+    const button2 = ` <button id="crear">crear cuenta</button>  `
+
+  rootElement.innerHTML = button + button2;
 
   const Registrarse = document.getElementById('botonlogin'); 
   Registrarse.addEventListener('click', function() { 
@@ -22,4 +24,10 @@ import { onNavigate } from "../main.js";
      console.log('Se ha encontrado un error:', error); 
      }); 
  }); 
+
+ const IniciarSecion = document.getElementById('crear'); 
+IniciarSecion.addEventListener('click', function(){
+   onNavigate('/NewUser');
+}
+); 
   } 
