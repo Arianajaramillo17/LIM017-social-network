@@ -2,15 +2,18 @@
 /*import { myFunction } from './lib/index.js'; 
 myFunction(); 
 */ 
-import { Home } from './menu/Home.js'; 
-import { NewUser } from './menu/NewUser.js'; 
-import { Login } from './menu/Login.js'; 
+import { Home } from './Sesion/Home.js'; 
+import { NewUser } from './Sesion/NewUser.js'; 
+import { Login } from './Sesion/Login.js'; 
+import { MenuHome } from './Menu/MenuHome.js';
 // Router 
 // const pageOne = document.getElementById('welcome'); 
 export const routes = {
   '/': Home, 
   '/NewUser': NewUser, 
   '/Login': Login,
+  '/MenuHome': MenuHome,
+
 }
 
 const root = document.getElementById('root'); 
