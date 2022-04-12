@@ -12,6 +12,9 @@
     .logo {
     background-color: red;
     }
+@media (max-width: 480px) {
+.logo {
+    background-color: rgb(255, 230, 0);
 }
 @media  (max-height: 450px) {
     .logo {
