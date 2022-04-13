@@ -1,5 +1,5 @@
 /* Cuando la pantalla sea más chica que 480px aplica estos estilos */
-@media (max-width: 480px) {
+@media (max-width: 1200px) {
 .logo {
     background-color: rgb(255, 230, 0);
 }
