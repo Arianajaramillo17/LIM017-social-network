@@ -29,5 +29,6 @@ import { onNavigate } from "../main.js";
 IniciarSecion.addEventListener('click', function(){
    onNavigate('/NewUser');
 }
-); 
-  } 
+);
+  }
+  
