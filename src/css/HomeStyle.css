@@ -10,33 +10,12 @@ body{
 }
 
 
-@media  (max-width: 760px) {
-    .logo {
-    background-color: red;
-    }}
-
-
 @media (max-width: 480px) {
 .logo {
     background-color: rgb(255, 230, 0);
 }}
 
 
-
-@media  (max-height: 450px) {
-    .logo {
-    background-color: green;
-
-    body {
-    background-color: #FFF800;
-
-    }
-    .ImageLogo{        
-        height: 250px;
-        width: 250px;
-        display: block;
-        margin: 33% auto;
-    }
 
 @media  (max-height: 450px) {
     body {
@@ -49,12 +28,4 @@ body{
             margin: 33% auto;
         }
 }
-
-
-/* Pero si mi pantalla es mayor a 480 px aplica estos estilos siempre y cuando el tamaño sea menor a 768 px 
-
-@media (max-width: 768px) {}*/ */
-
-@media (max-width: 768px) {}*/
-
 
