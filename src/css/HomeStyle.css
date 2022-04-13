@@ -1,7 +1,8 @@
 /* Cuando la pantalla sea más chica que 480px aplica estos estilos */
-@font-face {
+/*@font-face {
     font-family: AsiaMania-fond;
     src: url(../flying_birds_2/FlyingBirds.ttf);
+
 }
 
 *{
@@ -88,6 +89,20 @@ form{
 }
 
 /*
+
+  }font-family: AsiaMania;*/
+
+body{
+    background-color: #FFF800;
+}
+.ImageLogo{
+    height: 250px;
+    width: 250px;
+    display: block;
+    margin: 15% auto;
+}
+
+
 @media  (max-width: 760px) {
     .logo {
     background-color: red;
@@ -100,12 +115,39 @@ form{
 }}
 
 
+
 @media  (max-height: 450px) {
     .logo {
     background-color: green;
+
+    body {
+    background-color: #FFF800;
+
     }
+    .ImageLogo{        
+        height: 250px;
+        width: 250px;
+        display: block;
+        margin: 33% auto;
+    }
+
+@media  (max-height: 450px) {
+    body {
+        background-color: #FFF800;
+        }
+        .ImageLogo{        
+            height: 250px;
+            width: 250px;
+            display: block;
+            margin: 33% auto;
+        }
 }
 
 
 /* Pero si mi pantalla es mayor a 480 px aplica estos estilos siempre y cuando el tamaño sea menor a 768 px 
+
 @media (max-width: 768px) {}*/ */
+
+@media (max-width: 768px) {}*/
+
+
