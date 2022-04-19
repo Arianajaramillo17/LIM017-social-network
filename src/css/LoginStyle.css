@@ -1,7 +1,14 @@
 @font-face {
     font-family: AsiaMania-fond;
     src: url(../flying_birds_2/FlyingBirds.ttf);
-
+}
+@font-face {
+    font-family: Comfortaa-Bold-fond;
+    src: url(../flying_birds_2/Comfortaa-Bold.ttf);
+}
+@font-face {
+    font-family: Comfortaa-Regular-fond;
+    src: url(../flying_birds_2/Comfortaa-Regular.ttf);
 }
 
 *{
@@ -12,77 +19,210 @@
 .HomeView{
     background: #FFF800;
     height: 100vh;
-    overflow: hidden
+    overflow: hidden;
     /* align-content: center;
     text-align: center; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.HomeView::-webkit-scrollbar{
+    -webkit-appearance: none;
+}
+
+.logoWelcome{
+    margin: 30% 0% 0% 0%;
+    text-align: center;
 }
 
 .AppLogo{
     width: 60%;
-    margin: 40% 0% 0% 20%;
 }
 
-form{
-    margin: 5% 0% 0% 17%;
+h2{
+    display: none;
 }
+
+.login{
+    margin: 5% 0% 0% 0%;
+}
+
 .form-login{
     font-family: AsiaMania-fond;
-    font-size: 50px;
+    font-size: 25px;
 }
 
 .inputForm{
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 30px;
-    width: 650px;
-    height: 85px;
+    font-size: 15px;
+    width: 290px;
+    height: 40px;
     border-color: black;
-    border-radius: 18px;
+    border-radius: 10px;
     padding: 10px;
+}
+
+.loginButtons{
+    text-align: center;
+    font-size: 13px;
 }
 
 .logo{
     background: black;
-    width: 650px;
-    height: 85px;
-    border-radius: 18px;
-    font-family: Comfortaa;
-    font-size: 25px;
+    width: 290px;
+    height: 40px;
+    border-radius: 10px;
+    font-family: Comfortaa-Bold-fond;
     color: white;
     transition: 0.2s;
     cursor: pointer;
+    margin: 13% 0% 0% 0%;
+}
+
+h1{
+    font-family: Comfortaa-Regular-fond;
 }
 
 #crear{
-    margin-left: 29%;
-    color: black;
-    font-family: Comfortaa;
-    font-size: 25px;
+    color: #BD0EF2;
+    font-family: Comfortaa-Bold-fond;
     text-decoration: none;
 }
 
-#LoginGmail{
-    width: 13%;
-    border-radius: 51%;
-    margin: 8% 0% 0% 33%;
+.LoginGmail{
+    background: white;
+    font-family: Comfortaa-Bold-fond;
+    font-size: 12px;
+    border-radius: 8px;
+    width: 290px;
+    height: 38px;
+    border: none;
+    transition: 0.2s;
+    cursor: pointer;
+    /* text-align: center;
+    vertical-align: middle; */
 }
 
-
-/*
 @media only screen and (min-width: 820px) {
     /* For desktop: */
-    /*.HomeView{
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 5px;
+    .HomeView{
+        flex-direction: row;
     }
+
+    .logoWelcome{
+        display: flex;
+        flex-direction: column;
+        width: 55%;
+        height: 51%;
+        margin: 0% 0% 0% 0%;
+        align-items: center;
+    }
+
     .AppLogo{
-        width: 25%;
-        margin: 12% 0% 0% 12%;
+        width: 51%;
+    }
+
+    h2{
+        display: flex;
+        font-family: AsiaMania-fond;
+        font-size: 40px;
+    }
+
+    .login{
+        margin: 14% 0% 0% 0%;
+    }
+
+    .loginButtons{
+        margin: 3% 0% 0% 0%;
+        font-size: 16px;
+    }
+
+    .logo, .LoginGmail{
+        font-size: 16px;
+    }
+
+    .containerLogin{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 28%;
+        height: 45%;
+        border-radius: 5%;
+        border: 1px solid #000000;
+        font-size: 25px;
+    }
+
+    .form-login{
+        font-size: 37px;
+    }
+
+    .inputForm, .logo, .LoginGmail{
+        width: 380px;
+        height: 50px;
     }
 }
 
+/*@media (min-width: 600px) and (max-width: 820px) {
+    For tablets:
+    .HomeView{
+        flex-direction: row;
+    }
 
+    .logoWelcome{
+        display: flex;
+        flex-direction: column;
+        width: 55%;
+        height: 51%;
+        margin: 0% 0% 0% 0%;
+        align-items: center;
+    }
+
+
+    .AppLogo{
+        width: 51%;
+    }
+
+    h2{
+        display: flex;
+        font-family: AsiaMania-fond;
+        font-size: 40px;
+    }
+
+    form{
+        margin: 14% 0% 0% 0%;
+    }
+
+    .loginButtons{
+        margin: 3% 0% 0% 0%;
+        font-size: 16px;
+    }
+
+    .logo, .LoginGmail{
+        font-size: 16px;
+    }
+
+    .containerLogin{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 28%;
+        height: 45%;
+        border-radius: 5%;
+        border: 1px solid #000000;
+        font-size: 25px;
+    }
+
+    .form-login{
+        font-size: 37px;
+    }
+
+    .inputForm, .logo, .LoginGmail{
+        width: 380px;
+        height: 50px;
+    }
 
 @media (min-width: 600px) and (max-width: 820px) {
     /* For tablets: 
+
 }*/
