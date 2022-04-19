@@ -1,7 +1,6 @@
 import { onNavigate } from '../main.js';
-import { getDatabase, set, ref, update } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-database.js";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-auth.js";
-
+import { getDatabase, ref, update } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-database.js";
+import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-auth.js";
 
 export const Login = (rootElement) => {
   const button = `
@@ -15,9 +14,11 @@ export const Login = (rootElement) => {
           <form class="login">
             <label class="form-login">Correo Electronico :</label><br>
             <input class="inputForm" id="inputEmail"/><br>
+
             <label class="form-login">Contraseña :</label><br>
             <input class="inputForm" id="inputPassword"/><br>
           </form>
+
           <section class="loginButtons">
             <button class="logo" id="LogoButton">INICIAR SESIÓN</button><br><br>
             <button class="LoginGmail" type="image"> <img src="./image/LogoGmail.jpg" height ="21"/>  INICIAR SESIÓN CON GOOGLE</button><br><br>
@@ -25,44 +26,29 @@ export const Login = (rootElement) => {
             <a href="/NewUser" class="crear" id="crear">Registrate</a><br>
             </section>
         </section>
-      </section>
-      `;
-
-        <img src="./image/Logo.png" class="AppLogo"/>
-        <form class="login">
-          <label class="form-login">Correo Electronico :</label><br>
-          <input class="inputForm" id="email"/><br><br>
-          <label class="form-login">Contraseña :</label><br>
-          <input class="inputForm" id="password"/><br><br><br>
-        </form>
-          <button class="logo" id="login">INICIAR SESIÓN</button><br><br>
-          <a href="/NewUser" class="crear" id="btnRegistrarse">REGISTRARSE</a><br><br>
-      </section>`;  
+      </section>`;
+      
 rootElement.innerHTML = button;
 
 const database = getDatabase();
 const auth = getAuth();
+const btnLogin = document.getElementById("LogoButton")
 
-const login = document.getElementById("login")
-//const database = getDatabase(app);
 //funcion iniciar sesion
-  login.addEventListener('click',(e)=>{
-    var email = document.getElementById('email').value;
-    var password = document.getElementById('password').value;
+  btnLogin.addEventListener('click',(e)=>{
+    var inputEmail = document.getElementById('inputEmail').value;
+    var inputPassword = document.getElementById('inputPassword').value;
 
-
-       signInWithEmailAndPassword(auth, email, password)
+       signInWithEmailAndPassword(auth, inputEmail, inputPassword)
        .then((userCredential) => {
          // Signed in 
          const user = userCredential.user;
          const dt = new Date();
           update(ref(database, 'users/' + user.uid),{
            last_login: dt,
-
          })
-          alert("iniciaste sesion s");
+          alert("iniciaste sesions");
           onNavigate('/MenuHome');
-
        })
        .catch((error) => {
          const errorCode = error.code;
@@ -70,6 +56,8 @@ const login = document.getElementById("login")
          alert("error al iniciar sesion");
    });
    });
+
+   //iniciar con google
  /*registro con google 
  const Registrarse = document.getElementById('LogoButton');
   Registrarse.addEventListener('click', () => {
