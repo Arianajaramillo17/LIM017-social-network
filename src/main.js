@@ -13,7 +13,6 @@ export const routes = {
   '/NewUser': NewUser,
   '/Login': Login,
   '/MenuHome': MenuHome,
-
 };
 
 const root = document.getElementById('root');
