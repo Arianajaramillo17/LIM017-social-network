@@ -3,15 +3,24 @@ import { onNavigate } from '../main.js';
 export const Login = (rootElement) => {
   const button = `
       <section class="HomeView">
-        <img src="./image/Logo.png" class="AppLogo"/>
-        <form class="login">
-          <label class="form-login">Correo Electronico :</label><br>
-          <input class="inputForm" id="inputEmail"/><br><br>
-          <label class="form-login">Contraseña :</label><br>
-          <input class="inputForm" id="inputPassword"/><br><br><br>
-        </form>
-          <button class="logo" id="LogoButton">INICIAR SESIÓN</button><br><br>
-          <a href="/NewUser" class="crear" id="crear">REGISTRARSE</a><br><br>
+        <section class="logoWelcome">
+          <img src="./image/Logo.png" class="AppLogo"/>
+          <h2>1, 2, 3, Hello! Bienvenidx!</h2>
+        </section>
+        <section class="containerLogin">
+          <form class="login">
+            <label class="form-login">Correo Electronico :</label><br>
+            <input class="inputForm" id="inputEmail"/><br>
+            <label class="form-login">Contraseña :</label><br>
+            <input class="inputForm" id="inputPassword"/><br>
+          </form>
+          <section class="loginButtons">
+            <button class="logo" id="LogoButton">INICIAR SESIÓN</button><br><br>
+            <button class="LoginGmail" type="image"> <img src="./image/LogoGmail.jpg" height ="21"/>  INICIAR SESIÓN CON GOOGLE</button><br><br>
+            <h1>¿No tienes una cuenta?</h1>
+            <a href="/NewUser" class="crear" id="crear">Registrate</a><br>
+            </section>
+        </section>
       </section>
       `;
 
