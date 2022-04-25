@@ -6,6 +6,8 @@ import { Home } from './Sesion/Home.js';
 import { NewUser } from './Sesion/NewUser.js';
 import { Login } from './Sesion/Login.js';
 import { MenuHome } from './Menu/MenuHome.js';
+//import {firebaseConfig} from  './firebase/conectorFB.js';
+
 // Router
 // const pageOne = document.getElementById('welcome');
 export const routes = {
@@ -13,11 +15,13 @@ export const routes = {
   '/NewUser': NewUser,
   '/Login': Login,
   '/MenuHome': MenuHome,
-
+ // '/firebaseConfig': conectorFB,
 };
 
 const root = document.getElementById('root');
 routes[window.location.pathname](root);
+
+//const app = initializeApp(firebaseConfig);
 
 export const onNavigate = (pathname) => {
   window.history.pushState(
@@ -28,9 +32,4 @@ export const onNavigate = (pathname) => {
   routes[pathname](root);
 };
 
-/*
-const Registrarse = document.getElementById('botonlogin');
-Registrarse.addEventListener('click', () => onNavigate('/Login'));
-const IniciarSecion = document.getElementById('BtnIniciarSecion');
-IniciarSecion.addEventListener('click', () => onNavigate('/Login'));
-*/
+
