@@ -1,4 +1,5 @@
-import { getDatabase, set, ref } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-database.js"; 
+//import { getDatabase, set, ref } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-database.js"; 
+import { getFirestore,  collection, addDoc  } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-firestore.js";
 import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-auth.js" ;
 
 export const NewUser = (rootElement) => {
@@ -19,61 +20,86 @@ export const NewUser = (rootElement) => {
 
           <label class="form-newUser">Correo Electrónico:</label><br>
           <input class="inputFormNewUser" id="newUserEmail"></input><br>
-
+          
           <label class="form-newUser">Crear contraseña :</label><br>
           <input class="inputFormNewUser" id="newUserPassword"></input><br>
 
           <label class="form-newUser">Escribe tu descripción :</label><br>
-          <textarea class="writeDescript"></textarea> </br>
+          <textarea class="writeDescript" id="newUserDescription"></textarea> </br>
         </form>
         <button class="registerBtn" id="sighUp">REGISTRARSE</button>
       </section>
       `;
 
   rootElement.innerHTML = containerRegistro;
-//};
 
-  /*const containerLogo = ' <h1 class="titleNewUser" id="titleNewUser"> Iniciar registro </h1>';
-  const containerRegistro = `<section class="board">  <p class="photoRegist">Subir foto de perfil</p>
-  <button class="photoUpload"></button>
-  <p class="nameRegist" >Nombre</p>
-  <input class="inp" id="username"></input>
-  <p class="mailRegist" >Correo</p>
-  <input class="inp" id="email"></input>
-  <p class="passwordRegist" >Crear contraseña</p>
-  <input class="inp" id="password"></input>
-  <p class="descriptRegist">Escribe tu descripción</p>
-  <textarea class="writeDescrip"></textarea> </br> </section>`;
-  const containerCrearCuenta =
-    '<button class="button" id="sighUp">REGISTRARSE</button>'
-    ;
-  rootElement.innerHTML = containerLogo + containerRegistro + containerCrearCuenta
-*/
-const database = getDatabase();
 const auth = getAuth();
-//  const database = getDatabase(app);
-//const sighUp= document.getElementById("sighUp") 
+const db = getFirestore();
 
-sighUp.addEventListener('click',(e) => {
-  var username = document.getElementById('newUserName').value;
-  var email = document.getElementById('newUserEmail').value;
-  var password = document.getElementById('newUserPassword').value;
+
+//const sighUp= document.getElementById("sighUp") 
+sighUp.addEventListener('click',() => {
+  var newUserName = document.getElementById('newUserName').value;
+  var newUserEmail = document.getElementById('newUserEmail').value;
+  var newUserPassword = document.getElementById('newUserPassword').value;
+  var newUserDescription = document.getElementById('newUserDescription').value;
    
-  createUserWithEmailAndPassword(auth, email, password)
-   .then((userCredential) => {
-    // Signed in 
-     const user = userCredential.user
-     set(ref(database, 'users/' + user.uid),{
-         username: username,
-         email: email
-     })
-     alert('cuenta creada');
-   })
+  createUserWithEmailAndPassword(auth, newUserEmail, newUserPassword)
+   .then(() => {
+   try {
+    const register =  addDoc(collection(db, "register"), {
+      newUserName:newUserName,
+      newUserEmail:newUserEmail,
+      newUserDescription:newUserDescription
+    });
+    console.log("Registro realizado ", register.newUserName);
+    swal({
+      title: "Registro realizado",
+      text: "Su cuenta a sido creada con exito!!",
+      icon: "success",
+      button: "Iniciar Sesion" ,
+      dangerMode: true,
+
+    })
+    .then((result) => {
+      //volver al inicio
+      if(result){
+      location.href=("./Login")
+      }
+    })
+  } 
+  catch (e){
+    console.error("Error, no se pudo registrar ", e);
+  }
+})
    .catch((error) => {
      const errorCode = error.code;
      const errorMessage = error.message;
      alert("errorMessage");
    });
   });
+  
+ /* sighUp.addEventListener('click',(e) => {
+    var newUserEmail = document.getElementById('newUserEmail').value;
+    var newUserPassword = document.getElementById('newUserPassword').value;
+    var newUserName = document.getElementById('newUserName').value;
+
+    try {
+    const register =  addDoc(collection(db, "register"), {
+      newUserName:newUserName,
+      newUserEmail:newUserEmail
+    });
+    alert('cuenta creada');
+    console.log("Document written with ID: ", register.id);
+  } 
+  catch (e) {
+    console.error("Error adding document: ", e);
+  }
+    });*/
+
+   
+
+    
 }
+
 

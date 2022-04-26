@@ -6,6 +6,7 @@ import { Home } from './Sesion/Home.js';
 import { NewUser } from './Sesion/NewUser.js';
 import { Login } from './Sesion/Login.js';
 import { MenuHome } from './Menu/MenuHome.js';
+import { NavMenu } from './Sesion/NavMenu.js';
 //import {firebaseConfig} from  './firebase/conectorFB.js';
 
 // Router
@@ -15,7 +16,8 @@ export const routes = {
   '/NewUser': NewUser,
   '/Login': Login,
   '/MenuHome': MenuHome,
- // '/firebaseConfig': conectorFB,
+  '/NavMenu': NavMenu,
+  //'/firebaseConfig': conectorFB,
 };
 
 const root = document.getElementById('root');
