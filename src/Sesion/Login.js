@@ -18,8 +18,9 @@ export const Login = (rootElement) => {
             <label class="form-login">Correo Electronico :</label><br>
             <input class="inputForm" id="inputEmail"/><br>
 
-            <label class="form-login">Contraseña :</label><br>
-            <input class="inputForm" id="inputPassword"/><br>
+            <label class="form-login">Contraseña :</label><br> <span class="icon-eyeL">
+            <i class="fa-solid fa-eye-slash"></i></span>
+            <input type="password" class="inputForm" id="inputPassword"/><br>
           </form>
 
           <section class="loginButtons">
@@ -34,6 +35,23 @@ export const Login = (rootElement) => {
       </section>`;
       
 rootElement.innerHTML = button;
+
+//Ocultar contraseña
+const iconEyeLogin= document.querySelector(".icon-eyeL");
+iconEyeLogin.addEventListener("click", function () {
+  const iconeye = this.querySelector("i");
+
+ if(this.nextElementSibling.type === "password"){
+   this.nextElementSibling.type = "text";
+   iconeye.classList.remove("fa-eye-slash");
+   iconeye.classList.add ("fa-eye");
+ } else {
+    this.nextElementSibling.type = "password";
+    iconeye.classList.remove ("fa-eye");
+   iconeye.classList.add("fa-eye-slash");
+ }
+});
+
 
 const auth = getAuth(app);
  //const db = getFirestore();
