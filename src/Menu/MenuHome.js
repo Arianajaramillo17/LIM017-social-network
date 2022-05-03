@@ -1,5 +1,4 @@
-import { onNavigate } from '../main.js';
-import {
+ import {
   onGetTasks,
   saveTask,
   deleteTask,
@@ -15,7 +14,7 @@ export const MenuHome = (rootElement) => {
       <nav class="navUp">
       <ol class="nav-sesionFinish">
         <img class="iconSesionFinish" id="imageUserProfile" src="./image/User.jpg" height="50" />
-        <p class="iconSesionFinish" id="nameUser">ALICIA</p> <br/>
+        <p class="iconSesionFinish" id="nameUser">al </p> <br/>
         <a class="iconSesionFinish" id="finishSesion" href="#"><img src="./image/finishSesion.png" height ="45"/></a>
       </ol>
       </nav>
@@ -45,8 +44,9 @@ export const MenuHome = (rootElement) => {
     <div class="createPost">
     <form id="task-form">
       <textarea class="input-post" id="task-description" placeholder="¿Qué estas pensando?"></textarea>
-      <button class="btnPost" type="image"> <img src="./image/loadImage.png" height ="40"/></button>
+     <button class="btnPost" type="image" id="selbtn"> <img src="./image/loadImage.png" height ="40"/></button>
       <button class="btnPost" id="btn-task-form" type="image"> <img src="./image/finishPost.png" height ="40"/></button>
+      
       </form><br>
       <p>LO MÁS VISTO HOY:</p><br>
       <div class="col-md-6" id="tasks-container"></div>
@@ -54,7 +54,7 @@ export const MenuHome = (rootElement) => {
   </section>
 
   </section>     `;
- 
+
   rootElement.innerHTML = button2;
 
   const SignOff = document.getElementById('finishSesion');
@@ -98,6 +98,7 @@ window.addEventListener("DOMContentLoaded", async (e) => {
       tasksContainer.innerHTML += `
        <div class="showPost">
       <p><h4 class="post-text">${newPost.description}</h4><p><br>
+    
        <button class="btn btn-primary btn-delete" data-id="${doc.id}">
       🗑 Eliminar
     </button>
@@ -159,7 +160,10 @@ taskForm.addEventListener("submit", async (e) => {
     console.log(error);
   }
 });
+
 };
+
+
 
 /* ejemplo de post
   <div class="newPost">

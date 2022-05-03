@@ -2,7 +2,7 @@ import { onNavigate } from '../main.js';
 //import { getDatabase, ref, update } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-database.js";
 import { getFirestore  } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-firestore.js";
 //import { getAuth,signInWithEmailAndPassword} from "https://www.gstatic.com/firebasejs/9.4.0/firebase-auth.js";
-import { getAuth ,signInWithEmailAndPassword ,GoogleAuthProvider, signInWithPopup } from "https://www.gstatic.com/firebasejs/9.4.1/firebase-auth.js";
+import { getAuth ,signInWithEmailAndPassword ,sendSignInLinkToEmail,GoogleAuthProvider, signInWithPopup } from "https://www.gstatic.com/firebasejs/9.4.1/firebase-auth.js";
 import { app } from '../firebase/conectorFB.js';
 
 export const Login = (rootElement) => {
@@ -56,7 +56,6 @@ iconEyeLogin.addEventListener("click", function () {
 const auth = getAuth(app);
  //const db = getFirestore();
  const provider = new GoogleAuthProvider();
-
 //funcion iniciar sesion
 const btnLogin = document.getElementById("LoginButton")
    btnLogin.addEventListener('click',(e)=>{
@@ -66,30 +65,42 @@ const btnLogin = document.getElementById("LoginButton")
        signInWithEmailAndPassword(auth, inputEmail, inputPassword)
 
        .then((userCredential) => {
-        const user = userCredential.user;
-        
+       const user = userCredential.user;
+       // const user = result.user;
+       // alert(userCredential.user)
        console.log("iniciaste sesion"),
+      //alert(user.userCredential)
+      
        onNavigate('/MenuHome');
 
       })
        .catch((error) => {
-         const errorCode = error.code;
-         const errorMessage = error.message;
-         alert("error al iniciar sesion");
+       swal({
+        title: "Cuenta Invalida!!",
+        text: "Verifique sus datos",
+        icon: "error",
+        button: "Volver" ,
+        dangerMode: true,
+      })
    });
    });
- 
+
    //login con google
-   const login = document.getElementById("loginGoogle")
-    login.addEventListener('click',(e) => {
-  //signInWithRedirect(auth, provider);
+   const login = document.getElementById("loginGoogle") 
+  login.addEventListener('click',(e) => {
     signInWithPopup(auth, provider)
    .then((result) => {
     // This gives you a Google Access Token. You can use it to access the Google API.
     const credential = GoogleAuthProvider.credentialFromResult(result);
    // const token = credential.accessToken;
     const user = result.user;
-    alert(user.displayName);
+    swal({
+      title:`Hola ${user.displayName} `,
+      text:`Bienvenido(a) a Asia Mania `,
+      button: "Aceptar" ,
+      dangerMode: true,
+    })
+   // alert(user.displayName);
     console.log("ingresate")
     onNavigate('/MenuHome');
 
@@ -102,6 +113,8 @@ const btnLogin = document.getElementById("LoginButton")
     alert(errorMessage);
   });
  });
+
+ ///// ///////
 
    //iniciar con google
 /* const Registrarse = document.getElementById('loginGoogle');
