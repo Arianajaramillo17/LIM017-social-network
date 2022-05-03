@@ -1,6 +1,6 @@
 //import { getDatabase, set, ref } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-database.js"; 
 import { getFirestore,  collection, addDoc  } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-firestore.js";
-import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-auth.js" ;
+import { getAuth, createUserWithEmailAndPassword,sendSignInLinkToEmail } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-auth.js" ;
 
 export const NewUser = (rootElement) => {
 
@@ -43,7 +43,7 @@ sighUp.addEventListener('click',() => {
   var newUserEmail = document.getElementById('newUserEmail').value;
   var newUserPassword = document.getElementById('newUserPassword').value;
   var newUserDescription = document.getElementById('newUserDescription').value;
-   
+ 
   createUserWithEmailAndPassword(auth, newUserEmail, newUserPassword)
    .then(() => {
    try {
@@ -73,11 +73,18 @@ sighUp.addEventListener('click',() => {
   }
 })
    .catch((error) => {
-     const errorCode = error.code;
-     const errorMessage = error.message;
-     alert("errorMessage");
+     swal({
+      title: "No se pudo registrar",
+      text: "Verifique tus datos",
+      icon: "error",
+      button: "Volver" ,
+      dangerMode: true,
+    })
+
    });
   });
+  
+
   
  /* sighUp.addEventListener('click',(e) => {
     var newUserEmail = document.getElementById('newUserEmail').value;
