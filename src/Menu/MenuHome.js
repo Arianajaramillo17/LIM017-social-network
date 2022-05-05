@@ -1,11 +1,4 @@
- import {
-  onGetTasks,
-  saveTask,
-  deleteTask,
-  getTask,
-  updateTask,
-
-} from "../firebase/conectorFB.js";
+ import { onGetTasks,saveTask,deleteTask,getTask,updateTask} from "./datosCrud.js";
 
 export const MenuHome = (rootElement) => {
   const button2 = `
@@ -37,9 +30,6 @@ export const MenuHome = (rootElement) => {
       </nav>
   </section>
 
-
-
-
   <section class="containerPost">
     <div class="createPost">
     <form id="task-form">
@@ -52,8 +42,7 @@ export const MenuHome = (rootElement) => {
       <div class="col-md-6" id="tasks-container"></div>
       </div>
   </section>
-
-  </section>     `;
+  </section> `;
 
   rootElement.innerHTML = button2;
 
@@ -68,7 +57,6 @@ export const MenuHome = (rootElement) => {
     .then((result) => {
       //no salir
       if(result){
-       // window.location.reload()
     }else{
       //volver al inicio
         location.href=("/")
@@ -105,6 +93,7 @@ window.addEventListener("DOMContentLoaded", async (e) => {
     <button class="btn btn-secondary btn-edit" data-id="${doc.id}">
     📌 Editar
     </button>
+
       </div>
     </div>
   </div>
@@ -120,7 +109,7 @@ window.addEventListener("DOMContentLoaded", async (e) => {
         }
       })
     );
-
+  
     const btnsEdit = tasksContainer.querySelectorAll(".btn-edit");
     btnsEdit.forEach((btn) => {
       btn.addEventListener("click", async (e) => {
@@ -137,15 +126,16 @@ window.addEventListener("DOMContentLoaded", async (e) => {
         }
       });
     });
+  
   });
 });
 
 taskForm.addEventListener("submit", async (e) => {
   e.preventDefault();
-  const description = taskForm["task-description"]
+  const description = taskForm["task-description"];
   try {
     if (!editStatus) {
-      await saveTask( description.value);
+      await saveTask( description.value,);
     } else {
       await updateTask(id, {
         description: description.value,
@@ -163,19 +153,3 @@ taskForm.addEventListener("submit", async (e) => {
 
 };
 
-
-
-/* ejemplo de post
-  <div class="newPost">
-      <p>LO MÁS VISTO HOY:</p><br>
-      <div class="showPost">
-        <img class="iconSesionFinish" id="imageUserProfile" src="./image/User.jpg" height="40"/><br>
-        <p class="iconSesionFinish" id="nameUser">ALICIA</p><br><br>
-        <h4 class="post-text">Bla bla bla bla ... </h4><br>
-        <img id="imagePost" src="./image/imagePostA.jpg" width="100%"/><br><br>
-
-        <textarea class="comment-post" id="comment-post" placeholder="Agregar comentario"></textarea>
-        <button class="btnPost" id="btnCommentPost" type="image"> <img src="./image/finishPost.png" height ="40"/></button>
-      </div>
-    </div>
-*/
