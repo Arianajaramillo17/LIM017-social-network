@@ -1,9 +1,9 @@
-//import { getDatabase, set, ref } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-database.js"; 
-import { getFirestore,  collection, addDoc  } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-firestore.js";
-import { getAuth, createUserWithEmailAndPassword,sendSignInLinkToEmail } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-auth.js" ;
+import { getFirestore,  collection, addDoc  } from
+ "https://www.gstatic.com/firebasejs/9.4.0/firebase-firestore.js";
+import { getAuth, createUserWithEmailAndPassword } from
+ "https://www.gstatic.com/firebasejs/9.4.0/firebase-auth.js" ;
 
 export const NewUser = (rootElement) => {
-
   const containerRegistro = `
       <section class="logoWelcomeViewRegister">
         <img src="./image/Logo.png" class="AppLogoRegister"/>
@@ -34,6 +34,9 @@ export const NewUser = (rootElement) => {
       `;
 
   rootElement.innerHTML = containerRegistro;
+const auth = getAuth();
+const db = getFirestore();
+
 //Ocultar contraseña
 const iconEye= document.querySelector(".icon-eye");
 iconEye.addEventListener("click", function () {
@@ -49,11 +52,6 @@ iconEye.addEventListener("click", function () {
    icon.classList.add("fa-eye-slash");
  }
 });
-
-
-const auth = getAuth();
-const db = getFirestore();
-
 
 //const sighUp= document.getElementById("sighUp") 
 sighUp.addEventListener('click',() => {

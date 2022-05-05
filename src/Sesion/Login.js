@@ -1,9 +1,8 @@
 import { onNavigate } from '../main.js';
-//import { getDatabase, ref, update } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-database.js";
-import { getFirestore  } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-firestore.js";
-//import { getAuth,signInWithEmailAndPassword} from "https://www.gstatic.com/firebasejs/9.4.0/firebase-auth.js";
-import { getAuth ,signInWithEmailAndPassword ,sendSignInLinkToEmail,GoogleAuthProvider, signInWithPopup } from "https://www.gstatic.com/firebasejs/9.4.1/firebase-auth.js";
-import { app } from '../firebase/conectorFB.js';
+import { getAuth ,signInWithEmailAndPassword ,GoogleAuthProvider, signInWithPopup } 
+from "../firebase/importFB.js";
+import { app,auth } from '../firebase/initFB.js';
+import {firebaseConfig} from "../firebase/configuracionFB.js";
 
 export const Login = (rootElement) => {
   const button = `
@@ -53,7 +52,7 @@ iconEyeLogin.addEventListener("click", function () {
 });
 
 
-const auth = getAuth(app);
+//const auth = getAuth(app);
  //const db = getFirestore();
  const provider = new GoogleAuthProvider();
 //funcion iniciar sesion
@@ -113,9 +112,11 @@ const btnLogin = document.getElementById("LoginButton")
     alert(errorMessage);
   });
  });
-
  ///// ///////
 
+
+
+ 
    //iniciar con google
 /* const Registrarse = document.getElementById('loginGoogle');
   Registrarse.addEventListener('click', () => {

@@ -2,7 +2,7 @@
 /* import { myFunction } from './lib/index.js';
 myFunction();
 */
-import { Home } from './Sesion/Home.js';
+import { HomeInit } from './Sesion/HomeInit.js';
 import { NewUser } from './Sesion/NewUser.js';
 import { Login } from './Sesion/Login.js';
 import { MenuHome } from './Menu/MenuHome.js';
@@ -12,7 +12,7 @@ import { NavMenu } from './Sesion/NavMenu.js';
 // Router
 // const pageOne = document.getElementById('welcome');
 export const routes = {
-  '/': Home,
+  '/': HomeInit,
   '/NewUser': NewUser,
   '/Login': Login,
   '/MenuHome': MenuHome,
