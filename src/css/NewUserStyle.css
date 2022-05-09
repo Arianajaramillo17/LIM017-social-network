@@ -27,7 +27,7 @@
 }
 
 .titleNewUser {
-    font-family: Comfortaa-Bold-fond;
+    font-family: Comfortaa-Bold-fond, sans-serif;
     color: black;
     font-size: 38px;
 }
@@ -35,7 +35,7 @@
 .newUserImageProfile{
     align-items: center;
     text-align: center;
-    font-family: Comfortaa-BOld-fond;
+    font-family: Comfortaa-BOld-fond, sans-serif;
     font-size: 13px;
 }
 
@@ -44,7 +44,7 @@
 }
 
 .form-newUser{
-    font-family:  Comfortaa-Bold-fond;
+    font-family:  Comfortaa-Bold-fond, sans-serif;
     text-align: left;
     color: black;
     font-size: 14px;
@@ -66,7 +66,7 @@
     width: 300px;
     height: 42px;
     font-size: 13px;
-    font-family: Comfortaa-Regular-fond;
+    font-family: Comfortaa-Regular-fond, sans-serif;
     padding: 0% 3% 0% 3%;
     margin: 0% 0% 7% 0%;
 }
@@ -77,7 +77,7 @@
     width: 300px;
     height: 80px;
     font-size: 13px;
-    font-family: Comfortaa-Regular-fond;
+    font-family: Comfortaa-Regular-fond, sans-serif;
     padding: 3% 3% 3% 3%;
 }
 
@@ -86,7 +86,7 @@
     width: 300px;
     height: 40px;
     border-radius: 10px;
-    font-family: Comfortaa-Bold-fond;
+    font-family: Comfortaa-Bold-fond, sans-serif;
     color: white;
     transition: 0.2s;
     cursor: pointer;

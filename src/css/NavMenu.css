@@ -12,7 +12,7 @@
     text-decoration: none;
     list-style: none;
     box-sizing: border-box;
-    font-family: Comfortaa-Bold-fond;
+    font-family: Comfortaa-Bold-fond, sans-serif;
 }
 
 .menuContainerCategories{
@@ -29,7 +29,7 @@
     width: 280px;
     height: 83px;
     color: white;
-    font-family: AsiaMania-fond;
+    font-family: AsiaMania-fond, sans-serif;
     font-size: 39px;
 
     justify-content: center;

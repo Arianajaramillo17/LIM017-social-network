@@ -1,7 +1,14 @@
-import { getFirestore,  collection, addDoc  } from
- "https://www.gstatic.com/firebasejs/9.4.0/firebase-firestore.js";
-import { getAuth, createUserWithEmailAndPassword } from
- "https://www.gstatic.com/firebasejs/9.4.0/firebase-auth.js" ;
+/* eslint-disable import/no-unresolved */
+import {
+  getFirestore,
+  collection,
+  addDoc,
+} from 'https://www.gstatic.com/firebasejs/9.4.0/firebase-firestore.js';
+
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+} from 'https://www.gstatic.com/firebasejs/9.4.0/firebase-auth.js';
 
 export const NewUser = (rootElement) => {
   const containerRegistro = `
@@ -30,99 +37,71 @@ export const NewUser = (rootElement) => {
           <textarea class="writeDescript" id="newUserDescription"></textarea> </br>
         </form>
         <button class="registerBtn" id="sighUp">REGISTRARSE</button>
-      </section>
-      `;
-
+      </section> `;
+  /* eslint-disable no-param-reassign */
   rootElement.innerHTML = containerRegistro;
-const auth = getAuth();
-const db = getFirestore();
 
-//Ocultar contraseña
-const iconEye= document.querySelector(".icon-eye");
-iconEye.addEventListener("click", function () {
-  const icon = this.querySelector("i");
+  const db = getFirestore();
+  const auth = getAuth();
 
- if(this.nextElementSibling.type === "password"){
-   this.nextElementSibling.type = "text";
-   icon.classList.remove("fa-eye-slash");
-   icon.classList.add ("fa-eye");
- } else {
-    this.nextElementSibling.type = "password";
-    icon.classList.remove ("fa-eye");
-   icon.classList.add("fa-eye-slash");
- }
-});
+  const iconEye = document.querySelector('.icon-eye');
+  iconEye.addEventListener('click', () => {
+    const icon = this.querySelector('i');
 
-//const sighUp= document.getElementById("sighUp") 
-sighUp.addEventListener('click',() => {
-  var newUserName = document.getElementById('newUserName').value;
-  var newUserEmail = document.getElementById('newUserEmail').value;
-  var newUserPassword = document.getElementById('newUserPassword').value;
-  var newUserDescription = document.getElementById('newUserDescription').value;
- 
-  createUserWithEmailAndPassword(auth, newUserEmail, newUserPassword)
-   .then(() => {
-   try {
-    const register =  addDoc(collection(db, "register"), {
-      newUserName:newUserName,
-      newUserEmail:newUserEmail,
-      newUserDescription:newUserDescription
-    });
-    console.log("Registro realizado ", register.newUserName);
-    swal({
-      title: "Registro realizado",
-      text: "Su cuenta a sido creada con exito!!",
-      icon: "success",
-      button: "Iniciar Sesion" ,
-      dangerMode: true,
-
-    })
-    .then((result) => {
-      //volver al inicio
-      if(result){
-      location.href=("./Login")
-      }
-    })
-  } 
-  catch (e){
-    console.error("Error, no se pudo registrar ", e);
-  }
-})
-   .catch((error) => {
-     swal({
-      title: "No se pudo registrar",
-      text: "Verifique tus datos",
-      icon: "error",
-      button: "Volver" ,
-      dangerMode: true,
-    })
-
-   });
+    if (this.nextElementSibling.type === 'password') {
+      this.nextElementSibling.type = 'text';
+      icon.classList.remove('fa-eye-slash');
+      icon.classList.add('fa-eye');
+    } else {
+      this.nextElementSibling.type = 'password';
+      icon.classList.remove('fa-eye');
+      icon.classList.add('fa-eye-slash');
+    }
   });
-  
 
-  
- /* sighUp.addEventListener('click',(e) => {
-    var newUserEmail = document.getElementById('newUserEmail').value;
-    var newUserPassword = document.getElementById('newUserPassword').value;
-    var newUserName = document.getElementById('newUserName').value;
+  const sighUp = document.getElementById('sighUp');
+  sighUp.addEventListener('click', () => {
+    const newUserName = document.getElementById('newUserName').value;
+    const newUserEmail = document.getElementById('newUserEmail').value;
+    const newUserPassword = document.getElementById('newUserPassword').value;
+    const newUserDescription = document.getElementById('newUserDescription').value;
 
-    try {
-    const register =  addDoc(collection(db, "register"), {
-      newUserName:newUserName,
-      newUserEmail:newUserEmail
-    });
-    alert('cuenta creada');
-    console.log("Document written with ID: ", register.id);
-  } 
-  catch (e) {
-    console.error("Error adding document: ", e);
-  }
-    });*/
-
-   
-
-    
-}
-
-
+    createUserWithEmailAndPassword(auth, newUserEmail, newUserPassword)
+      .then(() => {
+        try {
+          const register = addDoc(collection(db, 'register'), {
+            /* eslint-disable  object-shorthand */
+            newUserName: newUserName,
+            newUserEmail: newUserEmail,
+            newUserDescription: newUserDescription,
+          });
+          console.log(register);
+          // eslint-disable-next-line
+    swal({
+            title: 'Registro realizado',
+            text: 'Su cuenta a sido creada con exito!!',
+            icon: 'success',
+            button: 'Iniciar Sesion',
+            dangerMode: true,
+          })
+            .then((result) => {
+              if (result) {
+                window.location.href = ('./Login');
+              }
+            });
+        } catch (e) {
+          console.error('Error, no se pudo registrar ', e);
+        }
+      })
+      .catch(() => {
+        // eslint-disable-next-line
+        swal({
+          title: 'No se pudo registrar',
+          text: 'Verifique tus datos',
+          icon: 'error',
+          button: 'Volver',
+          dangerMode: true,
+        });
+      });
+  });
+};
