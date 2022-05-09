@@ -1,3 +1,4 @@
+/* eslint-disable import/no-cycle */
 import { onNavigate } from '../main.js';
 
 export const NavMenu = (rootElement) => {
@@ -12,11 +13,9 @@ export const NavMenu = (rootElement) => {
                 <li><a class="menuCategories" id="NewsSelector" href="#"><img class="iconMenu" src="./image/news.jpg" height ="60"/>NEWS</a></li>
             </div>
         </nav>
-    </section>
-    `;
-
+    </section>`;
+  /* eslint-disable no-param-reassign */
   rootElement.innerHTML = containerMenu;
-
   const IniciarSecion = document.getElementById('CloseSesion');
   IniciarSecion.addEventListener('click', () => {
     onNavigate('/');

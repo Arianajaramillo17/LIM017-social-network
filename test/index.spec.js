@@ -1,8 +1,12 @@
-// importamos la funcion que vamos a testear
-/*import { myFunction } from '../src/lib/index';
+import { onNavigate } from '../src/main.js';
 
-describe('myFunction', () => {
-  it('debería ser una función', () => {
-    expect(typeof myFunction).toBe('function');
+jest.mock('../src/firebase/mocks.js');
+
+describe('Función onNavigate', () => {
+  it('La función onNavigate debe cargar vista Login', () => {
+    document.body.innerHTML = '<div id="root"></div>';
+    onNavigate('/Login');
+    const divRoot = document.querySelector('#login-btn');
+    expect(divRoot.textContent).toBe('Iniciar sesion');
   });
-});*/
+});
