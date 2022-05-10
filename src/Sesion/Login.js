@@ -39,7 +39,7 @@ export const Login = (rootElement) => {
   rootElement.innerHTML = button;
 
   /* Ocultar contraseña */
-  const iconEyeLogin = document.querySelector('.icon-eyeL');
+  const iconEyeLogin = rootElement.querySelector('.icon-eyeL');
   iconEyeLogin.addEventListener('click', function () {
     const iconeye = this.querySelector('i');
 
@@ -56,10 +56,10 @@ export const Login = (rootElement) => {
 
   const provider = new GoogleAuthProvider();
   /* funcion iniciar sesion */
-  const btnLogin = document.getElementById('LoginButton');
+  const btnLogin = rootElement.querySelector('#LoginButton');
   btnLogin.addEventListener('click', () => {
-    const inputEmail = document.getElementById('inputEmail').value;
-    const inputPassword = document.getElementById('inputPassword').value;
+    const inputEmail = rootElement.querySelector('#inputEmail').value;
+    const inputPassword = rootElement.querySelector('#inputPassword').value;
 
     signInWithEmailAndPassword(auth, inputEmail, inputPassword)
 

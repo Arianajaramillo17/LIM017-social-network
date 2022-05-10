@@ -1,7 +1,7 @@
 /* eslint-disable import/no-cycle */
 import { routes } from './routesMain.js';
 
-const root = document.getElementById('root');
+const root = document.getElementById('root') ? document.getElementById('root') : document.createElement('div');
 routes[window.location.pathname](root);
 
 export const onNavigate = (pathname) => {
