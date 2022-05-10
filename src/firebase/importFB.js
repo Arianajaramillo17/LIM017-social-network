@@ -1,7 +1,7 @@
 /* eslint-disable import/no-unresolved */
-import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.4.0/firebase-app.js';
+export { initializeApp } from 'https://www.gstatic.com/firebasejs/9.4.0/firebase-app.js';
 
-import {
+export {
   getFirestore,
   collection,
   getDocs,
@@ -13,32 +13,10 @@ import {
   updateDoc,
 } from 'https://www.gstatic.com/firebasejs/9.4.0/firebase-firestore.js';
 
-import {
+export {
   getAuth,
   signInWithEmailAndPassword,
   GoogleAuthProvider,
   signInWithPopup,
   createUserWithEmailAndPassword,
 } from 'https://www.gstatic.com/firebasejs/9.4.0/firebase-auth.js';
-
-export { initializeApp };
-
-export {
-  getFirestore,
-  collection,
-  getDocs,
-  onSnapshot,
-  addDoc,
-  deleteDoc,
-  doc,
-  getDoc,
-  updateDoc,
-};
-
-export {
-  getAuth,
-  signInWithEmailAndPassword,
-  GoogleAuthProvider,
-  signInWithPopup,
-  createUserWithEmailAndPassword,
-};

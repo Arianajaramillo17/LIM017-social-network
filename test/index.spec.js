@@ -1,6 +1,6 @@
 import { onNavigate } from '../src/main.js';
 
-jest.mock('../src/firebase/mocks.js');
+jest.mock('../src/firebase/importFB.js');
 
 describe('Función onNavigate', () => {
   it('La función onNavigate debe cargar vista Login', () => {
