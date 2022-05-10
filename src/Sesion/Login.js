@@ -1,14 +1,11 @@
 /* eslint-disable import/no-cycle */
 import { onNavigate } from '../main.js';
-import { app } from '../firebase/initFB.js';
+import { auth } from '../firebase/initFB.js';
 import {
-  getAuth,
   signInWithEmailAndPassword,
   GoogleAuthProvider,
   signInWithPopup,
 } from '../firebase/importFB.js';
-
-const auth = getAuth(app);
 
 export const Login = (rootElement) => {
   const button = `

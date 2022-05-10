@@ -1,14 +1,11 @@
 /* eslint-disable import/no-unresolved */
 import {
+  getAuth,
+  createUserWithEmailAndPassword,
   getFirestore,
   collection,
   addDoc,
-} from 'https://www.gstatic.com/firebasejs/9.4.0/firebase-firestore.js';
-
-import {
-  getAuth,
-  createUserWithEmailAndPassword,
-} from 'https://www.gstatic.com/firebasejs/9.4.0/firebase-auth.js';
+} from '../firebase/importFB.js';
 
 export const NewUser = (rootElement) => {
   const containerRegistro = `
