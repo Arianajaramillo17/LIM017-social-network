@@ -1,5 +1,5 @@
 // Mocks de auth
-export const signInWithPopup = () => Promise.resolve({});
+/*export const signInWithPopup = () => Promise.resolve({});
 export const getAuth = () => Promise.resolve({});
 export class GoogleAuthProvider {}
 
@@ -7,3 +7,4 @@ export class GoogleAuthProvider {}
 export const initializeApp = () => Promise.resolve({});
 export const getFirestore = () => ({});
 export const addDoc = () => Promise.resolve({});
+*/

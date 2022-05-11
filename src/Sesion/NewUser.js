@@ -1,11 +1,10 @@
 /* eslint-disable import/no-unresolved */
 import {
-  getAuth,
   createUserWithEmailAndPassword,
-  getFirestore,
   collection,
   addDoc,
 } from '../firebase/importFB.js';
+import { db, auth } from '../firebase/initFB.js';
 
 export const NewUser = (rootElement) => {
   const containerRegistro = `
@@ -37,9 +36,6 @@ export const NewUser = (rootElement) => {
       </section> `;
   /* eslint-disable no-param-reassign */
   rootElement.innerHTML = containerRegistro;
-
-  const db = getFirestore();
-  const auth = getAuth();
 
   const iconEye = document.querySelector('.icon-eye');
   iconEye.addEventListener('click', () => {
