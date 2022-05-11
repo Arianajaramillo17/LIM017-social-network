@@ -12,7 +12,7 @@
     text-decoration: none;
     list-style: none;
     box-sizing: border-box;
-    font-family: Comfortaa-Bold-fond;
+    font-family: Comfortaa-Bold-fond, sans-serif;
 }
 
 .img{
@@ -74,7 +74,7 @@
     transition: 0.3s;
     border-radius: 50%;
     float: left;
-    font-family: Comfortaa-Bold-fond;
+    font-family: Comfortaa-Bold-fond, sans-serif;
 }
 
 .nav-sesionFinish.active{
@@ -119,7 +119,7 @@
 }
 
 .input-post{
-    font-family: Comfortaa-Regular-fond;
+    font-family: Comfortaa-Regular-fond, sans-serif;
     font-size: 16px;
     color: #0d0d0d;
     width: 69%;
@@ -167,7 +167,7 @@
 }
 
 .comment-post{
-    font-family: Comfortaa-Regular-fond;
+    font-family: Comfortaa-Regular-fond, sans-serif;
     font-size: 16px;
     color: #0d0d0d;
     width: 82%;
@@ -233,9 +233,27 @@
         font-family: Comfortaa-Bold-fond;
     }
 
+<<<<<<< HEAD
     h4{
         font-family: AsiaMania-fond;
         font-size: 29px;
+=======
+    .categories{
+        display: flex;
+        background: black;
+        border-radius: 27px;
+        width: 280px;
+        height: 83px;
+        color: white;
+        font-family: AsiaMania-fond, sans-serif;
+        font-size: 39px;
+
+        justify-content: center;
+        align-items: center;
+        min-height: 4rem;
+        padding: 1% 2% 1% 8%;
+        overflow: auto;
+>>>>>>> eb8ed792f825aa0aecccdc77e6d36b19f86b4555
     }
 
     #imageMenuHi{
@@ -262,7 +280,7 @@
         float: right;
         padding: 7% 26% 0% 0%;
         font-size: 17px;
-        font-family: Comfortaa-Bold-fond;
+        font-family: Comfortaa-Bold-fond, sans-serif;
     }
 
     .iconBurger{

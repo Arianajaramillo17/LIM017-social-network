@@ -1,29 +1,8 @@
-// Este es el punto de entrada de tu aplicacion
-/* import { myFunction } from './lib/index.js';
-myFunction();
-*/
-import { HomeInit } from './Sesion/HomeInit.js';
-import { NewUser } from './Sesion/NewUser.js';
-import { Login } from './Sesion/Login.js';
-import { MenuHome } from './Menu/MenuHome.js';
-import { NavMenu } from './Sesion/NavMenu.js';
-//import {firebaseConfig} from  './firebase/conectorFB.js';
+/* eslint-disable import/no-cycle */
+import { routes } from './routesMain.js';
 
-// Router
-// const pageOne = document.getElementById('welcome');
-export const routes = {
-  '/': HomeInit,
-  '/NewUser': NewUser,
-  '/Login': Login,
-  '/MenuHome': MenuHome,
-  '/NavMenu': NavMenu,
-  //'/firebaseConfig': conectorFB,
-};
-
-const root = document.getElementById('root');
+const root = document.getElementById('root') ? document.getElementById('root') : document.createElement('div');
 routes[window.location.pathname](root);
-
-//const app = initializeApp(firebaseConfig);
 
 export const onNavigate = (pathname) => {
   window.history.pushState(
@@ -33,5 +12,3 @@ export const onNavigate = (pathname) => {
   );
   routes[pathname](root);
 };
-
-

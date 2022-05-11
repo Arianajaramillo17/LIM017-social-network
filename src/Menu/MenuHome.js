@@ -1,4 +1,12 @@
- import { onGetTasks,saveTask,deleteTask,getTask,updateTask} from "./datosCrud.js";
+/* eslint-disable import/no-cycle */
+import { onNavigate } from '../main.js';
+import {
+  onGetTasks,
+  saveTask,
+  deleteTask,
+  getTask,
+  updateTask,
+} from './datosCrud.js';
 
 export const MenuHome = (rootElement) => {
   const button2 = `
@@ -40,48 +48,48 @@ export const MenuHome = (rootElement) => {
       </div>
   </section>
   </section> `;
-
+  /* eslint-disable no-param-reassign */
   rootElement.innerHTML = button2;
 
   const SignOff = document.getElementById('finishSesion');
   SignOff.addEventListener('click', () => {
+    // eslint-disable-next-line
     swal({
-      text: "Seguro que desea cerrar sesion?",
-      icon: "error",
-      buttons: ["SI","NO"] ,
+      text: 'Seguro que desea cerrar sesion?',
+      icon: 'error',
+      buttons: ['SI', 'NO'],
       dangerMode: true,
     })
-    .then((result) => {
-      //no salir
-      if(result){
-    }else{
-      //volver al inicio
-        location.href=("/")
-    }
-    })
+      .then((result) => {
+        if (result) {
+          console.log('no cerro sesion');
+        } else {
+          /* volver al inicio */
+          onNavigate('/');
+        }
+      });
   });
 
   const hamburguer = document.getElementById('iconBurger');
   const navMenu = document.querySelector('.containerCategories');
 
-
   function responsive() {
     navMenu.classList.toggle('active');
   }
   hamburguer.addEventListener('click', responsive);
-/////////////////////////////
-const taskForm = document.getElementById("task-form");
-const tasksContainer = document.getElementById("tasks-container");
 
-let editStatus = false;
-let id = "";
+  const taskForm = document.getElementById('task-form');
+  const tasksContainer = document.getElementById('tasks-container');
 
-window.addEventListener("DOMContentLoaded", async (e) => {
-  onGetTasks((querySnapshot) => {
-    tasksContainer.innerHTML = "";
-    querySnapshot.forEach((doc) => {
-      const newPost = doc.data();
-      tasksContainer.innerHTML += `
+  let editStatus = false;
+  let id = '';
+
+  window.addEventListener('DOMContentLoaded', async () => {
+    onGetTasks((querySnapshot) => {
+      tasksContainer.innerHTML = '';
+      querySnapshot.forEach((doc) => {
+        const newPost = doc.data();
+        tasksContainer.innerHTML += `
        <div class="showPost">
       <p><h4 class="post-text">${newPost.description}</h4><p><br>
     
@@ -96,58 +104,55 @@ window.addEventListener("DOMContentLoaded", async (e) => {
     </div>
   </div>
   <br> `;
-    });
-    const btnsDelete = tasksContainer.querySelectorAll(".btn-delete");
-    btnsDelete.forEach((btn) =>
-      btn.addEventListener("click", async ({ target: { dataset } }) => {
-        try {
-          await deleteTask(dataset.id);
-        } catch (error) {
-          console.log(error);
-        }
-      })
-    );
-  
-    const btnsEdit = tasksContainer.querySelectorAll(".btn-edit");
-    btnsEdit.forEach((btn) => {
-      btn.addEventListener("click", async (e) => {
-        try {
-          const doc = await getTask(e.target.dataset.id);
-          const task = doc.data();
-          taskForm["task-description"].value = task.description;
+      });
+      const btnsDelete = tasksContainer.querySelectorAll('.btn-delete');
+      btnsDelete.forEach((btn) => {
+        btn.addEventListener('click', async (e) => {
+          try {
+            await deleteTask(e.target.dataset.id);
+          } catch (error) {
+            console.log(error);
+          }
+        });
+      });
 
-          editStatus = true;
-          id = doc.id;
-          taskForm["btn-task-form"];
-        } catch (error) {
-          console.log(error);
-        }
+      const btnsEdit = tasksContainer.querySelectorAll('.btn-edit');
+      btnsEdit.forEach((btn) => {
+        btn.addEventListener('click', async (e) => {
+          try {
+            const doc = await getTask(e.target.dataset.id);
+            const task = doc.data();
+            taskForm['task-description'].value = task.description;
+
+            editStatus = true;
+            id = doc.id;
+            /* eslint-disable no-unused-expressions */
+            taskForm['btn-task-form'];
+          } catch (error) {
+            console.log(error);
+          }
+        });
       });
     });
-  
   });
-});
 
-taskForm.addEventListener("submit", async (e) => {
-  e.preventDefault();
-  const description = taskForm["task-description"];
-  try {
-    if (!editStatus) {
-      await saveTask( description.value,);
-    } else {
-      await updateTask(id, {
-        description: description.value,
-      });
-      editStatus = false;
-      id = "";
-      taskForm["btn-task-form"];
+  taskForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const description = taskForm['task-description'];
+    try {
+      if (!editStatus) {
+        await saveTask(description.value);
+      } else {
+        await updateTask(id, {
+          description: description.value,
+        });
+        editStatus = false;
+        id = '';
+        taskForm['btn-task-form'];
+      }
+      taskForm.reset();
+    } catch (error) {
+      console.log(error);
     }
-    taskForm.reset();
-    //title.focus();
-  } catch (error) {
-    console.log(error);
-  }
-});
-
+  });
 };
-

@@ -49,12 +49,12 @@ h2{
 }
 
 .form-login{
-    font-family: AsiaMania-fond;
+    font-family: AsiaMania-fond, sans-serif;
     font-size: 25px;
 }
 
 .inputForm{
-    font-family: Comfortaa-Regular-fond;
+    font-family: Comfortaa-Regular-fond, sans-serif;
     font-size: 15px;
     width: 290px;
     height: 40px;
@@ -73,7 +73,7 @@ h2{
     width: 290px;
     height: 40px;
     border-radius: 10px;
-    font-family: Comfortaa-Bold-fond;
+    font-family: Comfortaa-Bold-fond, sans-serif;
     color: white;
     transition: 0.2s;
     cursor: pointer;
@@ -81,18 +81,18 @@ h2{
 }
 
 h1{
-    font-family: Comfortaa-Regular-fond;
+    font-family: Comfortaa-Regular-fond, sans-serif;
 }
 
 #crear{
     color: #BD0EF2;
-    font-family: Comfortaa-Bold-fond;
+    font-family: Comfortaa-Bold-fond, sans-serif;
     text-decoration: none;
 }
 
 .LoginGmail{
     background: white;
-    font-family: Comfortaa-Bold-fond;
+    font-family: Comfortaa-Bold-fond, sans-serif;
     font-size: 12px;
     border-radius: 8px;
     width: 290px;
@@ -132,7 +132,7 @@ h1{
 
     h2{
         display: flex;
-        font-family: AsiaMania-fond;
+        font-family: AsiaMania-fond, sans-serif;
         font-size: 40px;
     }
 
