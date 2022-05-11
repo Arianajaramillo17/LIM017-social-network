@@ -38,7 +38,7 @@ export const NewUser = (rootElement) => {
   rootElement.innerHTML = containerRegistro;
 
   const iconEye = document.querySelector('.icon-eye');
-  iconEye.addEventListener('click', () => {
+  iconEye.addEventListener('click', function () {
     const icon = this.querySelector('i');
 
     if (this.nextElementSibling.type === 'password') {
