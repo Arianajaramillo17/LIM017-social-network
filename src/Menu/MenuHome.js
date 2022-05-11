@@ -7,25 +7,23 @@ export const MenuHome = (rootElement) => {
       <nav class="navUp">
       <ol class="nav-sesionFinish">
         <img class="iconSesionFinish" id="imageUserProfile" src="./image/User.jpg" height="50" />
-        <p class="iconSesionFinish" id="nameUser">al </p> <br/>
+        <p class="iconSesionFinish" id="nameUser">ALICIA </p> <br/>
         <a class="iconSesionFinish" id="finishSesion" href="#"><img src="./image/finishSesion.png" height ="45"/></a>
       </ol>
       </nav>
 
       <nav class="navPhone">
         <ol class="nav-bar">
-          <img class="logoMenu" src="./image/logoSinLetras.png"  height ="240"/>
-          <a class="navMenuHome" id="iconBurger" href="/NavMenu"><img src="./image/iconBurger.png" height ="45"/></a>
-          <a class="navMenuHome" id="iconHome" href="/MenuHome"><img src="./image/iconHome.png" height ="45"/><h1 class= "description">INICIO</h1></a>
-          <a class="navMenuHome" id="IconProfile" href="#"><img src="./image/iconProfile.png" height ="43"/><h1 class= "description"> MI PERFIL</h1></a>
-          <hr>
-            <div class="containerCategories">
-              <h1 class="titleCategories">Categorías :</h1><br/>
-              <li><a class="categories" id="AnimeSelector" href="#"><img class="iconMenu" src="./image/anime.jpg" height ="60"/>ANIME</a></li><br>
-              <li><a class="categories" id="DoramasSelector" href="#"><img class="iconMenu" src="./image/doramas.jpg" height ="60"/>DORAMAS</a></li><br>
-              <li><a class="categories" id="KpopSelector" href="#"><img class="iconMenu" src="./image/kpop.jpg" height ="60"/>KPOP</a></li><br>
-              <li><a class="categories" id="NewsSelector" href="#"><img class="iconMenu" src="./image/news.jpg" height ="60"/>NEWS</a></li>
-            </div>
+          <li><img class="logoMenu" src="./image/Logo.png"  height ="265"/></li>
+          <li><div class="containerCategories">
+              <h3>HEY! BIENVENIDX !</h3><br>
+              <h4>AsiaMania es una red social para los apasionados del entretenimiento asiatica y sus expresiones de todos los tipos.<br><br>¿Y qué más?<br>
+              -Es una plataforma segura para expresar opiniones libremente.<br>
+              -Un lugar hospitalario para conocer gente de diferentes orígenes  de todo el mundo.</h4>
+              </div></li>
+          <img id="imageMenuHi" src="./image/hi.gif"  height ="85"/>
+          <img id="imageMenuColor" src="./image/color.gif"  height ="70"/>
+          <h4>Diviértete compartiendo :)</h4><img id="imageMenuLove" src="./image/love.gif"  height ="100"/>
         </ol>
       </nav>
   </section>
@@ -33,11 +31,10 @@ export const MenuHome = (rootElement) => {
   <section class="containerPost">
     <div class="createPost">
     <form id="task-form">
-      <textarea class="input-post" id="task-description" placeholder="¿Qué estas pensando?"></textarea>
-     <button class="btnPost" type="image" id="selbtn"> <img src="./image/loadImage.png" height ="40"/></button>
-      <button class="btnPost" id="btn-task-form" type="image"> <img src="./image/finishPost.png" height ="40"/></button>
-      
-      </form><br>
+      <textarea class="input-post" id="task-description" placeholder="¿Qué estas pensando?"></textarea><br>
+      <button class="btnPost" id="btn-task-form" type="image"><span>PUBLICAR</span></button>
+    </form><br>
+
       <p>LO MÁS VISTO HOY:</p><br>
       <div class="col-md-6" id="tasks-container"></div>
       </div>
@@ -67,10 +64,11 @@ export const MenuHome = (rootElement) => {
   const hamburguer = document.getElementById('iconBurger');
   const navMenu = document.querySelector('.containerCategories');
 
-  hamburguer.addEventListener('click', responsive);
+
   function responsive() {
     navMenu.classList.toggle('active');
   }
+  hamburguer.addEventListener('click', responsive);
 /////////////////////////////
 const taskForm = document.getElementById("task-form");
 const tasksContainer = document.getElementById("tasks-container");
