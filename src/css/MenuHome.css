@@ -2,10 +2,6 @@
     font-family: Comfortaa-Bold-fond;
     src: url(../flying_birds_2/Comfortaa-Bold.ttf);
 }
-@font-face {
-    font-family: Comfortaa-Regular-fond;
-    src: url(../flying_birds_2/Comfortaa-Regular.ttf);
-}
 
 *{
     margin: 0;
@@ -225,7 +221,7 @@
         background: white;
         border-radius: 25px;
         padding: 28% 18%;
-        font-family: AsiaMania-fond;
+        font-family: AsiaMania-fond, sans-serif;
     }
 
     h3{
@@ -233,7 +229,7 @@
     }
 
     h5{
-        font-family: AsiaMania-fond;
+        font-family: AsiaMania-fond, sans-serif;
         font-size: 29px;
     }
 
