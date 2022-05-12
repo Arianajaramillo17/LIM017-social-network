@@ -25,9 +25,9 @@ export const MenuHome = (rootElement) => {
           <li><img class="logoMenu" src="./image/Logo.png"  height ="265"/></li>
           <li><div class="containerCategories">
               <h3>HEY! BIENVENIDX !</h3><br>
-              <h4>AsiaMania es una red social para los apasionados del entretenimiento asiatica y sus expresiones de todos los tipos.<br><br>¿Y qué más?<br>
+              <h5>AsiaMania es una red social para los apasionados del entretenimiento asiatica y sus expresiones de todos los tipos.<br><br>¿Y qué más?<br>
               -Es una plataforma segura para expresar opiniones libremente.<br>
-              -Un lugar hospitalario para conocer gente de diferentes orígenes  de todo el mundo.</h4>
+              -Un lugar hospitalario para conocer gente de diferentes orígenes  de todo el mundo.</h5>
               </div></li>
           <img id="imageMenuHi" src="./image/hi.gif"  height ="85"/>
           <img id="imageMenuColor" src="./image/color.gif"  height ="70"/>
@@ -70,13 +70,13 @@ export const MenuHome = (rootElement) => {
       });
   });
 
-  const hamburguer = document.getElementById('iconBurger');
-  const navMenu = document.querySelector('.containerCategories');
+  // const hamburguer = document.getElementById('iconBurger');
+  /* const navMenu = document.querySelector('.containerCategories'); */
 
-  function responsive() {
+  /* function responsive() {
     navMenu.classList.toggle('active');
-  }
-  hamburguer.addEventListener('click', responsive);
+  } */
+  // hamburguer.addEventListener('click', responsive);
 
   const taskForm = document.getElementById('task-form');
   const tasksContainer = document.getElementById('tasks-container');
@@ -90,10 +90,10 @@ export const MenuHome = (rootElement) => {
       querySnapshot.forEach((doc) => {
         const newPost = doc.data();
         tasksContainer.innerHTML += `
-       <div class="showPost">
+      <div class="showPost">
       <p><h4 class="post-text">${newPost.description}</h4><p><br>
-    
-       <button class="btn btn-primary btn-delete" data-id="${doc.id}">
+
+    <button class="btn btn-primary btn-delete" data-id="${doc.id}">
       🗑 Eliminar
     </button>
     <button class="btn btn-secondary btn-edit" data-id="${doc.id}">

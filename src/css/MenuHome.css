@@ -141,7 +141,7 @@
     background: black;
     color: white;
     overflow: hidden;
-    transition: 0.2s;
+    /* transition: 0.2s; */
 }
 
 .btnPost:hover::after{
@@ -207,7 +207,6 @@
         z-index: 1;
         top: 0;
         left: 0;
-        overflow-x: hidden;
         padding-top: 20px;
         border-radius: 0px 50px 50px 0px;
     }
@@ -226,34 +225,16 @@
         background: white;
         border-radius: 25px;
         padding: 28% 18%;
+        font-family: AsiaMania-fond;
     }
 
     h3{
         font-size: 16px;
-        font-family: Comfortaa-Bold-fond;
     }
 
-<<<<<<< HEAD
-    h4{
+    h5{
         font-family: AsiaMania-fond;
         font-size: 29px;
-=======
-    .categories{
-        display: flex;
-        background: black;
-        border-radius: 27px;
-        width: 280px;
-        height: 83px;
-        color: white;
-        font-family: AsiaMania-fond, sans-serif;
-        font-size: 39px;
-
-        justify-content: center;
-        align-items: center;
-        min-height: 4rem;
-        padding: 1% 2% 1% 8%;
-        overflow: auto;
->>>>>>> eb8ed792f825aa0aecccdc77e6d36b19f86b4555
     }
 
     #imageMenuHi{
@@ -276,7 +257,7 @@
     }
 
     .description{
-        display: block;
+        /* display: block; */
         float: right;
         padding: 7% 26% 0% 0%;
         font-size: 17px;

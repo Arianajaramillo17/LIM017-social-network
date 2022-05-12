@@ -1,4 +1,4 @@
-# 🌐😊 RED SOCIAL - AsiaMania 🐼 
+# 🌐😊 RED SOCIAL - AsiaMania 🐼
 
 ## Índice
 
@@ -8,7 +8,7 @@
 ***
 ## 1. Definición del proyecto ✍
 
-Asia Mania es una red social pensada para conectar personas amantes del entretenimiento asiatico, compartir información, comentarios sobre animes, doramas, k-pop, noticias, creando asi una comunidad con sus amigos.
+Asia Mania es una red social pensada para conectar personas amantes del entretenimiento asiatico, compartir información, comentarios sobre animes, doramas, k-pop, noticias, creando asi una comunidad entre amigos.
 
 <img src="https://github.com/GabrielaChoquepata/LIM017-social-network/blob/main/src/image/procesoDeDise%C3%B1oRedSocial.png" width="100%"></img>
 
